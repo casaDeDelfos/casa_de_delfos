@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrología Arquetípica</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="componentes.js"></script>
+    <style>
+        .taller-layout {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            line-height: 1.6;
+        }
+        .taller-info { flex: 3; }
+        .taller-info h1 { font-size: 2rem; margin-bottom: 1rem; }
+        .taller-info h2 { margin-top: 2rem; font-size: 1.4rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+        .taller-meta { margin: 1rem 0; padding: 1rem; background: #f5f5f5; border-radius: 6px; }
+        .taller-sidebar { flex: 1; background: #fafafa; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; }
+        .sidebar-block { margin-bottom: 1.5rem; }
+        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #333; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
+        .sidebar-block ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar-block ul li { margin-bottom: 0.3rem; font-size: 0.95rem; }
+        .precio { font-size: 1.6rem; font-weight: bold; color: #2a2a2a; margin-bottom: 1rem; }
+        .btn-primary { display: block; width: 100%; padding: 0.8rem; background: #0056b3; color: #fff; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; margin-top: 1rem; }
+        .btn-primary:hover { background: #004494; }
+    </style>
+</head>
+<body>
+
+    <mi-header></mi-header>
+
+    <main class="container">
+        <div class="taller-layout">
+            <!-- Información detallada del curso -->
+            <div class="taller-info">
+                <span class="tag">Taller Online</span>
+                <h1>Astrología Arquetípica</h1>
+                
+                <!-- Meta -->
+                <div class="taller-meta">
+                    <p><strong>Modalidad:</strong> Virtual (en vivo, con acceso a grabaciones)</p>
+                    <p><strong>Duración:</strong> 4 clases | 1.5 a 2 horas cada una</p>
+                    <p><strong>Requisito:</strong> Mínimo 20 participantes</p>
+                </div>
+
+                <!-- Descripción -->
+                <section>
+                    <h2>Descripción del curso</h2>
+                    <p>Este curso ofrece una introducción a la astrología desde una perspectiva arquetípica y simbólica, orientada a la comprensión de la carta natal como un mapa de sentido y autoconocimiento.</p>
+                    <p>A través del estudio de los planetas, signos y casas como expresiones de arquetipos universales, el curso invita a leer el lenguaje del cielo como una herramienta para comprender los procesos vitales, la experiencia personal y las dinámicas interiores.</p>
+                </section>
+
+                <!-- Público -->
+                <section>
+                    <h2>¿A quién está dirigido?</h2>
+                    <p>Personas interesadas en la astrología como herramienta de comprensión simbólica y autoconocimiento, que deseen aprender a leer su carta natal desde una mirada profunda y reflexiva. No se requieren conocimientos previos.</p>
+                </section>
+
+                <!-- Temario -->
+                <section>
+                    <h2>Temario</h2>
+                    <ul>
+                        <li><strong>Clase 1:</strong> Astrología como lenguaje simbólico</li>
+                        <li><strong>Clase 2:</strong> Planetas como arquetipos</li>
+                        <li><strong>Clase 3:</strong> Signos y casas</li>
+                        <li><strong>Clase 4:</strong> Lectura de la carta natal</li>
+                    </ul>
+                </section>
+
+                <!-- Aprendizajes -->
+                <section>
+                    <h2>Lo que aprenderás</h2>
+                    <ul>
+                        <li>Comprender la astrología como lenguaje simbólico</li>
+                        <li>Reconocer arquetipos en la carta natal</li>
+                        <li>Interpretar planetas, signos y casas</li>
+                        <li>Realizar una lectura inicial de tu carta natal</li>
+                        <li>Utilizar la astrología como herramienta de autoconocimiento</li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <!-- Sidebar con resumen -->
+            <aside class="taller-sidebar">
+                <div class="form-group">
+                    <label>Precio</label>
+                    <div class="precio">Por confirmar</div>
+                </div>
+
+                <div class="sidebar-block">
+                    <h3>Horario (Hora Perú)</h3>
+                    <ul>
+                        <li>Clase 1: 17 de abril, 6:00-8:00pm</li>
+                        <li>Clase 2: 24 de abril, 6:00-8:00pm</li>
+                        <li>Clase 3: 1 de mayo, 6:00-8:00pm</li>
+                        <li>Clase 4: 8 de mayo, 6:00-8:00pm</li>
+                    </ul>
+                </div>
+
+                <!-- Formulario de inscripción -->
+                <form action="#" method="get">
+                    <a href="https://wa.me/51967212549" class="btn-primary">
+                    Inscribirme ahora
+                    </a>
+                </form>
+            </aside>
+        </div>
+    </main>
+
+    <mi-footer></mi-footer>
+
+</body>
+</html>

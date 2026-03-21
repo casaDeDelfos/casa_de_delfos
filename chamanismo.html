@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamanismo Domestico y Ritual</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="componentes.js"></script>
+    <style>
+        /* Layout general */
+        .taller-layout {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Sección principal */
+        .taller-info {
+            flex: 3;
+        }
+
+        .taller-info h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .taller-info h2 {
+            margin-top: 2rem;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+
+        .taller-meta {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 6px;
+        }
+
+        /* Sidebar */
+        .taller-sidebar {
+            flex: 1;
+            background: #fafafa;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .sidebar-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-block h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.3rem;
+        }
+
+        .sidebar-block ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-block ul li {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        /* Precio destacado */
+        .precio {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #2a2a2a;
+            margin-bottom: 1rem;
+        }
+
+        /* Botón */
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn-primary:hover {
+            background: #004494;
+        }
+    </style>
+</head>
+<body>
+
+    <mi-header></mi-header>
+
+    <main class="container">
+        <div class="taller-layout">
+            <!-- Información detallada del curso -->
+            <div class="taller-info">
+                <span class="tag">Taller Online</span>
+                <h1>Chamanismo Domestico y Ritual</h1>
+                
+                <!-- Meta -->
+                <div class="taller-meta">
+                    <p><strong>Modalidad:</strong> Virtual (con grabaciones)</p>
+                    <p><strong>Duración:</strong> 4 clases | 2 horas cada una</p>
+                    <p><strong>Requisito:</strong> Mínimo 15 participantes</p>
+                </div>
+
+                <!-- Descripción -->
+                <section>
+                    <h2>Descripción del curso</h2>
+                    <p><br></p>
+                    <p>Este curso ofrece una aproximación al chamanismo desde una doble perspectiva: antropológica y vivencial. Se exploran el símbolo, el ritual y las cosmovisiones tradicionales como formas de conocimiento que articulan la relación entre el ser humano, la naturaleza y lo sagrado.</p>
+                </section>
+
+                <!-- Público -->
+                <section>
+                    <h2>¿A quién está dirigido?</h2>
+                    <p><br></p>
+                    <p>Personas interesadas en la espiritualidad, el simbolismo y las tradiciones ancestrales, que deseen aproximarse al chamanismo desde una mirada profunda, respetuosa y reflexiva. No se requieren conocimientos previos.</p>
+                </section>
+
+                <!-- Temario -->
+                <section>
+                    <h2>Temario</h2>
+                    <p><br></p>
+                    <ul>
+                        <li><strong>Clase 1:</strong> ¿Qué es el chamanismo? Entre experiencia y estudio</li>
+                        <li><strong>Clase 2:</strong> Cosmovisión, símbolo y relación con la naturaleza</li>
+                        <li><strong>Clase 3:</strong> El ritual como práctica y como conocimiento</li>
+                        <li><strong>Clase 4:</strong> Chamanismo en la actualidad: sentido y límites</li>
+                    </ul>
+                </section>
+
+                <!-- Aprendizajes -->
+                <section>
+                    <h2>Lo que aprenderás</h2>
+                    <p><br></p>
+                    <ul>
+                        <li>Comprender el chamanismo desde una doble mirada: antropológica y vivencial</li>
+                        <li>Reconocer el valor del símbolo y el ritual como formas de conocimiento</li>
+                        <li>Entender distintas cosmovisiones tradicionales</li>
+                        <li>Reflexionar sobre la relación entre ser humano, naturaleza y lo sagrado</li>
+                        <li>Analizar el lugar del chamanismo en la actualidad</li>
+                    </ul>
+                </section>
+
+                <!-- Docente -->
+                <section>
+                    <h2>Docente</h2>
+                    <p><br></p>
+                    <p><strong>Sergio Miranda</strong>, Antropólogo y Chamán, integra en su enseñanza la investigación académica con la experiencia directa en tradiciones chamánicas. Su enfoque propone un diálogo entre conocimiento teórico y vivencial, ofreciendo una comprensión profunda y situada del chamanismo.</p>
+                </section>
+
+            </div>
+
+            <!-- Sidebar con resumen -->
+            <aside class="taller-sidebar">
+                <div class="form-group">
+                    <label>Precio</label>
+                    <div class="precio">S/60</div>
+                </div>
+
+                <div class="sidebar-block">
+                    <h3>Docente</h3>
+                    <p><strong>Sergio Miranda</strong><br>Antropólogo y Chamán</p>
+                </div>
+
+                <div class="sidebar-block">
+                    <h3>Horario (Hora Perú)</h3>
+                    <ul>
+                        <li>Clase 1: 23 de abril, 8:00-10:00pm</li>
+                        <li>Clase 2: 30 de abril, 8:00-10:00pm</li>
+                        <li>Clase 3: 7 de mayo, 8:00-10:00pm</li>
+                        <li>Clase 4: 14 de mayo, 8:00-10:00pm</li>
+                    </ul>
+                </div>
+
+                <!-- Formulario de inscripción -->
+                <form action="#" method="get">
+                    <a href="https://wa.me/51967212549" class="btn-primary">
+                    Inscribirme ahora
+                    </a>
+                </form>
+            </aside>
+        </div>
+    </main>
+
+    <mi-footer></mi-footer>
+
+</body>
+</html>
