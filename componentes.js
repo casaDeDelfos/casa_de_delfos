@@ -59,21 +59,17 @@ customElements.define('mi-footer', MiFooter);
 /* ============================= */
 window.addEventListener("load", function () {
 
-  const accordions = document.querySelectorAll(".accordion");
-  console.log("Acordeones encontrados:", accordions.length);
+  const sections = document.querySelectorAll("section");
 
-  accordions.forEach(acc => {
+  sections.forEach(section => {
+    const acc = section.querySelector(".accordion");
+    const panel = section.querySelector(".panel");
+
+    if (!acc || !panel) return;
+
     acc.addEventListener("click", function () {
-
-      this.classList.toggle("active");
-      const panel = this.nextElementSibling;
-
-      if (panel.style.maxHeight && panel.style.maxHeight !== "0px") {
-        panel.style.maxHeight = "0px";
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
-
+      acc.classList.toggle("active");
+      panel.classList.toggle("open");
     });
   });
 
