@@ -1,4 +1,6 @@
-/* componentes.js */
+/* ============================= */
+/* HEADER */
+/* ============================= */
 class MiHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -7,46 +9,38 @@ class MiHeader extends HTMLElement {
                 <div class="header-subtext">
                     <div class="logo-wrapper">
                         <a href="index.html">
-                            <span class="sub-logo">Escuela de Estudios Simbólicos
+                            <span class="sub-logo">Escuela de Estudios Simbólicos</span>
                         </a>
                     </div>
                 </div>
+
                 <div class="header-content">
                     <div class="logo-wrapper">
                         <a href="index.html" class="logo">
-                            <span class="sub-logo">La Casa de Delfos
+                            <span class="sub-logo">La Casa de Delfos</span>
                         </a>
                     </div>
                 </div>
             </div>
+
             <nav class="navbar">
-            <div class="container">
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-        </nav>
+                <div class="container">
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../nosotros.html">Nosotros</a></li>
+                        <li><a href="../contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </nav>
         </header>`;
     }
 }
-document.addEventListener("DOMContentLoaded", function () {
-  const accordions = document.querySelectorAll(".accordion");
+customElements.define('mi-header', MiHeader);
 
-  accordions.forEach(acc => {
-    acc.addEventListener("click", function () {
-      this.classList.toggle("active");
-      const panel = this.nextElementSibling;
 
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
-    });
-  });
-});
+/* ============================= */
+/* FOOTER */
+/* ============================= */
 class MiFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -57,6 +51,30 @@ class MiFooter extends HTMLElement {
         </footer>`;
     }
 }
-
-customElements.define('mi-header', MiHeader);
 customElements.define('mi-footer', MiFooter);
+
+
+/* ============================= */
+/* ACORDEONES (H2 retraíbles) */
+/* ============================= */
+window.addEventListener("load", function () {
+
+  const accordions = document.querySelectorAll(".accordion");
+  console.log("Acordeones encontrados:", accordions.length);
+
+  accordions.forEach(acc => {
+    acc.addEventListener("click", function () {
+
+      this.classList.toggle("active");
+      const panel = this.nextElementSibling;
+
+      if (panel.style.maxHeight && panel.style.maxHeight !== "0px") {
+        panel.style.maxHeight = "0px";
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+
+    });
+  });
+
+});
