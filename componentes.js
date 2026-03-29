@@ -17,7 +17,7 @@ class MiHeader extends HTMLElement {
                 <div class="header-content">
                     <div class="logo-wrapper">
                         <a href="index.html" class="logo">
-                            <span class="sub-logo">La Casa de Delfos</span>
+                            <span class="sub-logo">Casa de Delfos</span>
                         </a>
                     </div>
                 </div>
