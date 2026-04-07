@@ -1,43 +1,77 @@
 /* =========================================
    VARIABLES Y RESET (Paleta Jade Griego)
    ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Pinyon+Script&display=swap');
+
 :root {
-    --bg-color: #F2F7F5;
-    --bg-secondary: #E0EBE8;
-    --text-main: #123830;       /* Jade oscuro */
-    --text-secondary: #4A7067;
-    --accent-color: #2D6A5E;
-    --accent-light: #8FB3A9;    /* Jade claro para detalles */
-    --gold-mute: #C5A065;       /* Toque dorado antiguo sutil */
-    
-    --font-serif: 'Georgia', 'Times New Roman', serif;
+    --bg-color: #f1f1f5;
+    --bg-secondary: #d9d9e7;
+    --text-main: #0d142b;       
+    --text-secondary: #303064; 
+    --text-black: #000000;
+    --accent-color: #505081;
+    --accent-light: #9c9cbd;    
+    --gold-mute: #e0e0e0;       
+    --text-maingradient: #1a1a41;
+
+    /* Nube de estrellas consolidada para mayor eficiencia */
+    --stars-shadow: 
+        10vw 15vh #fff, 25vw 40vh #fff, 35vw 10vh #9c9cbd, 
+        50vw 30vh #fff, 65vw 45vh #e0e0e0, 80vw 15vh #fff, 
+        90vw 50vh #9c9cbd, 15vw 70vh #fff, 45vw 85vh #fff, 
+        75vw 70vh #e0e0e0, 5vw 90vh #fff, 95vw 80vh #fff,
+        12vw 35vh #fff, 42vw 12vh #fff, 72vw 55vh #9c9cbd,
+        22vw 85vh #fff, 55vw 65vh #fff, 88vw 25vh #e0e0e0;
+
+    --font-serif: 'Garamond', 'Times New Roman', serif;
     --font-sans: system-ui, -apple-system, sans-serif;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
 
 body {
+    padding-top: 129px;
     font-family: var(--font-sans);
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.7;
 }
 
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-ul { list-style: none; }
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: color 0.3s ease; 
+}
+
+ul { 
+    list-style: none; 
+}
 
 /* =========================================
    HEADER IMPONENTE CON MEANDRO Y DRAGONES
    ========================================= */
-header {
-    background-color: var(--text-main);
+header, footer {
+    overflow: hidden;
     color: var(--bg-color);
-    padding: 1.5rem 0 1.5rem 0; /* Espacio extra abajo para el patrón */
-    position: relative;
-    text-align: center;
-    border-bottom: 2px solid var(--bg-color)
 }
 
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 129px; 
+    z-index: 1000; 
+    background: linear-gradient(to bottom, var(--text-maingradient) 0%, var(--text-main) 90%);
+    padding: 1rem 0; 
+    text-align: center;
+    border-bottom: 2px solid var(--bg-color);
+    overflow: hidden; /* Importante para que las estrellas no se salgan */
+}
 /* Patrón Meandro (Llave Griega) en el borde inferior */
 header::after {
     content: "";
@@ -46,83 +80,98 @@ header::after {
     left: 0;
     width: 100%;
     height: 18px; 
-    
-    background-color: transparent;
-    
-    /* CAMBIO CLAVE: Usar la ruta del archivo real */
     background-image: url('meandro.png');
-    
-    /* Asegura que la imagen se repita en horizontal */
     background-repeat: repeat-x;
-    
-    /* Tamaño CLAVE: Asegura que cada repetición sea exactamente 10x9 píxeles */
     background-size: 20px 18px; 
-    
-    border: none;
-    opacity: 1; /* Al ser una imagen PNG ya debería tener la opacidad integrada, la ponemos a 1 */
 }
-/* IMPORTANTE: La Navbar debe tener posición relativa para que el 'after' sepa dónde ubicarse */
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* Cubre todo el header (top, left, bottom, right: 0) */
+    pointer-events: none;
+    z-index: 0; /* Se queda justo encima del fondo azul */
+    
+    /* Creamos estrellas de diferentes tamaños y posiciones */
+    background-image: 
+        radial-gradient(1px 1px at 10% 20%, white, transparent),
+        radial-gradient(2px 2px at 25% 50%, white, transparent),
+        radial-gradient(1px 1px at 45% 15%, var(--accent-light), transparent),
+        radial-gradient(2px 2px at 65% 80%, white, transparent),
+        radial-gradient(1px 1px at 85% 30%, var(--gold-mute), transparent),
+        radial-gradient(2px 2px at 15% 70%, white, transparent),
+        radial-gradient(1px 1px at 35% 40%, white, transparent),
+        radial-gradient(1px 1px at 55% 90%, var(--accent-light), transparent),
+        radial-gradient(2px 2px at 75% 20%, white, transparent),
+        radial-gradient(1px 1px at 95% 60%, white, transparent);
+    
+    background-repeat: repeat; /* Esto multiplica las estrellas por todo el header */
+    background-size: 300px 129px; /* Controla la densidad */
+    
+    animation: brilloEstelar 4s infinite ease-in-out;
+}
+.header-content, .navbar {
+    position: relative;
+    z-index: 10; /* Mucho más alto que el 0 de las estrellas */
+}
+@keyframes brilloEstelar {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+/* =========================================
+   NAVBAR Y LOGO
+   ========================================= */
 .navbar {
-    background-color: var(--text-main); /* Tu verde jade claro */
-    padding: 0.4rem 0;
+    background-color: transparent;
     width: 100%;
-    position: relative; /* Base para el meandro */
-    display: block;
+    position: relative;
+    z-index: 10; 
 }
 
-/* CONTENEDOR PARA ALINEAR A LA DERECHA */
 .navbar .container {
-    max-width: 1200px; /* O el ancho que uses en tu web */
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: flex-end; /* Empuja el menú a la derecha */
-    padding-right: 5%; /* Ajusta este % para que no llegue al borde completo */
+    justify-content: flex-end;
+    padding-right: 5%; 
 }
 
-/* LISTA EN HORIZONTAL */
 .navbar ul {
     display: flex;
-    flex-direction: row; /* Dispuestas de forma horizontal */
-    gap: 3rem;           /* Espaciado entre opciones */
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    gap: 3rem;           
 }
 
-/* ESTILO DE LOS ENLACES */
 .navbar a {
     color: var(--bg-color);
-    text-decoration: none;
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 2px;
     font-weight: 500;
-    transition: 0.3s ease;
 }
 
 .navbar a:hover {
     color: var(--accent-light);
 }
-/* Contenedor del Logo Central */
+
 .header-subtext {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 0rem;
-    font-size: 0.65rem;       /* Tamaño muy pequeño (original suele ser 1rem) */
-    letter-spacing: 0.25rem;  /* Mucho espacio entre letras para legibilidad y elegancia */
-    text-transform: uppercase; /* Siempre en mayúsculas para este estilo */
-    font-weight: 400;         /* Peso normal, no negrita */
-    opacity: 0.85;            /* Un toque de transparencia para suavizarlo */
+    font-size: 0.65rem;       
+    letter-spacing: 0.25rem;  
+    text-transform: uppercase; 
+    font-weight: 400;         
+    opacity: 0.85;          
 }
+
 .header-content {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
 }
+
 .logo-wrapper {
     display: flex;
     align-items: center;
@@ -132,29 +181,29 @@ header::after {
 .logo {
     font-family: var(--font-serif);
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 200;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: #fff;
+    line-height: 1.2;
 }
-
 
 /* =========================================
    CARRUSEL (CSS PURO - SIN JS)
    ========================================= */
 .carousel-container {
     width: 100%;
-    height: 500px; /* Altura del carrusel */
+    height: 330px; 
     overflow: hidden;
     position: relative;
     background-color: var(--bg-secondary);
-    margin-bottom: 4rem;
-    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--accent-light);
 }
 
 .carousel-track {
     display: flex;
-    width: 300%; /* 3 slides = 300% */
+    width: 300%; 
     height: 100%;
     animation: slideShow 18s infinite ease-in-out;
 }
@@ -171,46 +220,49 @@ header::after {
     color: white;
 }
 
-/* Fondos simulados para los slides */
-.slide-1 { background: linear-gradient(rgba(18, 56, 48, 0.6), rgba(18, 56, 48, 0.6)), url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center; }
-.slide-2 { background: linear-gradient(rgba(18, 56, 48, 0.6), rgba(18, 56, 48, 0.6)), url('https://images.unsplash.com/photo-1551029506-0807df4e2031?q=80&w=1034&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; }
-.slide-3 { background: linear-gradient(rgba(18, 56, 48, 0.6), rgba(18, 56, 48, 0.6)), url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center; }
+.slide-1 { 
+    /* Antes: linear-gradient(rgba(...), rgba(...)), url(...) */
+    background: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') center/cover; 
+}
 
+.slide-2 { 
+    background: url('astrologia.png') center/cover; 
+}
+
+.slide-3 { 
+    background: url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') center/cover; 
+}
 .slide h2 {
     font-family: var(--font-serif);
     font-size: 3rem;
     margin-bottom: 1rem;
     text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
+
 .slide p {
     font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
 }
 
-/* Animación Keyframes */
 @keyframes slideShow {
-    0%, 25% { transform: translateX(0); }       /* Slide 1 quieto */
-    33%, 58% { transform: translateX(-33.333%); } /* Mueve al 2 y espera */
-    66%, 91% { transform: translateX(-66.666%); } /* Mueve al 3 y espera */
-    100% { transform: translateX(0); }          /* Vuelve al inicio */
+    0%, 25% { transform: translateX(0); }       
+    33%, 58% { transform: translateX(-33.333%); } 
+    66%, 91% { transform: translateX(-66.666%); } 
+    100% { transform: translateX(0); }          
 }
 
 /* =========================================
    RESTO DEL LAYOUT (Tarjetas, Container)
    ========================================= */
-/* Acordeón */
-/* ===== ACORDEÓN FIX GLOBAL ===== */
-
 .accordion {
     cursor: pointer;
-    display: flex;              /* clave */
+    display: flex;              
     align-items: center;
-    justify-content: space-between; /* texto izquierda, flecha derecha */
+    justify-content: space-between; 
     gap: 10px;
 }
 
-/* flechita */
 .accordion::after {
     content: "▼";
     font-size: 0.8em;
@@ -221,7 +273,6 @@ header::after {
     transform: rotate(180deg);
 }
 
-/* panel */
 .panel {
     max-height: 0;
     overflow: hidden;
@@ -231,16 +282,50 @@ header::after {
 .panel.open {
     max-height: 1000px;
 }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
+.container { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    padding: 0 2rem; 
+}
+
+/* =========================================
+   SECTION TITLE (Líneas Dobles Laterales)
+   ========================================= */
 .section-title {
-    text-align: center;
-    font-family: var(--font-serif);
-    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    /* ESTO ES LO MÁS IMPORTANTE: Centra el grupo completo en la pantalla */
+    justify-content: center; 
+    
+    gap: 1.5rem; 
+    margin: 2rem 0; /* Aumentamos un poco el margen para que respire */
+    width: 100%;
+    
+    font-family: "Pinyon Script";
+    font-size: 1.6rem;
+    letter-spacing: 1px;
     color: var(--text-main);
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.section-title::before,
+.section-title::after {
+    content: "";
+    /* Cambiamos flex: 0.3 por un ancho fijo o relativo para tener control total */
+    /* Si usas flex: 0.3 con justify-content: center, se verá pequeño y centrado */
+    flex: 0.3; 
+    max-width: 100px; /* Evita que las líneas crezcan demasiado en pantallas anchas */
+    height: 4px;      /* Espacio entre las dos líneas del conjunto */
+    
+    border-top: 1px solid rgba(13, 20, 43, 0.4);
+    border-bottom: 1px solid rgba(13, 20, 43, 0.4);
+}
+
+.section-title span {
+    white-space: nowrap;
+    /* Opcional: un padding extra para alejar el texto de las líneas */
+    padding: 0 0.5rem; 
 }
 
 .grid-talleres {
@@ -255,14 +340,14 @@ header::after {
     border: 1px solid #C6DED6;
     border-radius: 2px;
     overflow: hidden;
-    transition: 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(18, 56, 48, 0.1);
-    border-color: var(--accent-color);
+    transform: translateX(5px); /* Esto moverá TODA la tarjeta a la derecha */
+    color: var(--text-main);
 }
+
 
 .card-img {
     height: 240px;
@@ -274,26 +359,165 @@ header::after {
     font-family: var(--font-serif);
     font-style: italic;
     font-size: 1.1rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; 
 }
 
-.card-content { padding: 2rem; }
-.card-title { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-main); }
-.card-desc { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem; }
-.card-link { font-weight: 700; color: var(--accent-color); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+.card-content {
+    padding: 1rem;
+    position: relative;
+}
+.card-title { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0rem; color: var(--text-black); }
+.card-desc { color: var(--text-black); margin-bottom: 0rem; font-size: 0.95rem; }
+.card-link { 
+    display: none; 
+}
 
-/* Botones y Forms (Heredados del estilo anterior pero refinados) */
+.card-content::after {
+    content: "\2192"; 
+    position: absolute;
+    
+    /* La ubicamos en la esquina exacta */
+    bottom: 12px;     
+    right: 15px;      
+    
+    /* Estética Jade Griego */
+    font-size: 1.2rem;
+    color: var(--accent-light); /* Color más suave para que no compita con el texto */
+    opacity: 0.6;               /* Semi-transparente por defecto */
+    
+    transition: all 0.3s ease;
+    pointer-events: none; 
+    line-height: 1;
+}
+
+/* 3. Al hacer hover, la flecha cobra vida sin mover el layout */
+.card:hover .card-content::after {
+    opacity: 1;
+    color: var(--accent-color);
+    transform: translateX(3px); /* Movimiento lateral mínimo */
+}
+/* Botones y Forms */
 .taller-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; margin-top: 4rem; }
 .taller-sidebar { background: white; padding: 2rem; border: 1px solid #C6DED6; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-.btn-primary { width: 100%; background: var(--text-main); color: #fff; padding: 1rem; border: none; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; }
+
+.btn-primary { 
+    width: 100%; 
+    background: var(--text-main); 
+    color: #fff; 
+    padding: 1rem; 
+    border: none; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    cursor: pointer; 
+    transition: background 0.3s ease; 
+}
+
 .btn-primary:hover { background: var(--accent-color); }
-.form-control { width: 100%; padding: 0.8rem; margin-bottom: 1.5rem; border: 1px solid #ccc; }
 
-footer { background: var(--text-main); color: var(--bg-secondary); text-align: center; padding: 4rem 0; margin-top: 4rem; border-top: 4px solid var(--accent-color); }
+.form-control { 
+    width: 100%; 
+    padding: 0.8rem; 
+    margin-bottom: 1.5rem; 
+    border: 1px solid #ccc; 
+}
 
-/* Responsive Header */
+footer { 
+    background: linear-gradient(to bottom, var(--text-maingradient) 0%, var(--text-main) 90%);
+    color: var(--bg-secondary); 
+    text-align: center; 
+    padding: 4rem 0; 
+    margin-top: 4rem; 
+    border-top: 4px solid var(--accent-color); 
+    
+    /* CRUCIAL PARA LAS ESTRELLAS */
+    position: relative;
+    overflow: hidden;
+}
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* Cubre todo el footer */
+    pointer-events: none;
+    z-index: 0;
+
+    /* Estrellas usando Gradientes Radiales */
+    background-image: 
+        radial-gradient(1px 1px at 15% 10%, white, transparent),
+        radial-gradient(2px 2px at 30% 40%, white, transparent),
+        radial-gradient(1px 1px at 50% 20%, var(--accent-light), transparent),
+        radial-gradient(2px 2px at 70% 60%, white, transparent),
+        radial-gradient(1.5px 1.5px at 85% 15%, var(--gold-mute), transparent),
+        radial-gradient(1px 1px at 10% 80%, white, transparent),
+        radial-gradient(2px 2px at 40% 75%, white, transparent),
+        radial-gradient(1px 1px at 60% 35%, var(--accent-light), transparent),
+        radial-gradient(2px 2px at 90% 85%, white, transparent),
+        radial-gradient(1px 1px at 25% 90%, white, transparent);
+    
+    background-repeat: repeat;
+    background-size: 200px 300px; /* Un patrón un poco más amplio */
+    
+    /* Usamos la misma animación que creamos para el header */
+    animation: brilloEstelar 6s infinite ease-in-out; 
+}
+/* Si el contenido del footer está en un div con clase container */
+footer .container {
+    position: relative;
+    z-index: 2;
+}
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
 @media (max-width: 768px) {
-    .logo { font-size: 1.5rem; }
-    .dragon-icon { width: 30px; height: 30px; }
-    .carousel-container { height: 400px; }
-    .slide h2 { font-size: 2rem; }
+    .logo { 
+        font-size: 1.5rem; 
+    }
+    .carousel-container { 
+        height: 400px; 
+    }
+    .slide h2 { 
+        font-size: 2rem; 
+    }
+    .taller-layout { 
+        grid-template-columns: 1fr; 
+        gap: 2rem; 
+    }
+    
+    /* 1. Contenedor de Navbar deslizable */
+    .navbar .container { 
+        padding: 0 1rem; 
+        justify-content: flex-start; /* Alineamos al inicio para el scroll */
+        overflow-x: auto;            /* Activa el desplazamiento horizontal */
+        -webkit-overflow-scrolling: touch; /* Scroll suave y fluido en iOS */
+        scrollbar-width: none;       /* Oculta la barra de scroll en Firefox */
+    }
+
+    /* Oculta la barra de scroll visual en Chrome/Safari/Edge */
+    .navbar .container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 2. Lista de navegación sin salto de línea */
+    .navbar ul { 
+        gap: 1.5rem; 
+        justify-content: flex-start; 
+        flex-wrap: nowrap; /* CRUCIAL: Evita que los items bajen a otra línea */
+        width: max-content; /* El ancho se adapta al total de los botones */
+        padding-bottom: 0.5rem; /* Pequeño espacio inferior */
+    }
+
+    /* 3. Convertir enlaces en "botones" táctiles eficientes */
+    .navbar a {
+        display: inline-block;
+        padding: 0.5rem 0.8rem; /* Aumenta el área táctil del dedo */
+        background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil estilo botón */
+        border-radius: 4px;
+        white-space: nowrap; /* Evita que el texto del botón se corte */
+    }
+
+    .navbar a:active {
+        background-color: rgba(255, 255, 255, 0.2); /* Efecto visual al tocar */
+    }
+/* Animación de parpadeo suave para el Header */
 }
