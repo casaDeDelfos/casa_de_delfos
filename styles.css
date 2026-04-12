@@ -459,7 +459,7 @@ header::before {
 }
 /* Botones y Forms */
 .taller-layout {
-    display: grid;
+    display: flex;
     gap: 1rem;
     padding: 2rem;
     max-width: 900px;
