@@ -6,26 +6,6 @@
     <title>Chamanismo y Ritual</title>
     <link rel="stylesheet" href="styles.css">
     <script src="componentes.js"></script>
-    <style>
-        .taller-layout {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-            line-height: 1.6;
-        }
-        .taller-info { flex: 3; }
-        .taller-info h1 { font-size: 2rem; margin-bottom: 1rem; }
-        .taller-info h2 { margin-top: 2rem; font-size: 1.4rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
-        .taller-meta { margin: 1rem 0; padding: 1rem; background: #f5f5f5; border-radius: 6px; }
-        .taller-sidebar { flex: 1; background: #fafafa; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; }
-        .sidebar-block { margin-bottom: 1.5rem; }
-        .sidebar-block h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #333; border-bottom: 1px solid #eee; padding-bottom: 0.3rem; }
-        .sidebar-block ul { list-style: none; padding: 0; margin: 0; }
-        .sidebar-block ul li { margin-bottom: 0.3rem; font-size: 0.95rem; }
-        .precio { font-size: 1.6rem; font-weight: bold; color: #2a2a2a; margin-bottom: 1rem; }
-        .btn-primary { display: block; width: 100%; padding: 0.8rem; background: #0056b3; color: #fff; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; margin-top: 1rem; }
-        .btn-primary:hover { background: #004494; }
-    </style>
 </head>
 <body>
 
@@ -34,18 +14,27 @@
     <main class="container">
         <div class="taller-layout">
             <!-- Información detallada del curso -->
-            <div class="taller-info">
+                <!-- Formulario de inscripción -->
+                <div class="image-for-taller">
+                    <img src="chamanismo.png" alt="Descripción del taller" class="img-content">
+                </div>
+                <div class="taller-info">
                 <span class="tag">Curso Online</span>
                 <h1>Chamanismo y Ritual</h1>
                 
                 <!-- Meta -->
                 <div class="taller-meta">
-                    <p><strong>Inicio:</strong> 23 de Abril de 2026</p>
+                    <p><strong>Inicio:</strong> 16 de Mayo de 2026, 4:00 pm.</p>
                     <p><strong>Modalidad:</strong> Virtual</p>
                     <p><strong>Duración:</strong> 4 clases | 2 horas cada una</p>
-                    <p><strong>Requisito:</strong> Mínimo 15 participantes</p>
+                    <p><strong>Calendario:</strong> 16, 23, 30 de mayo y 6 de junio - 4 pm. a 6 pm.</p>
                 </div>
 
+                <form action="https://wa.link/7pgxpr" method="get">
+                    <a href="https://wa.me/51967212549" class="btn-primary" style="text-align: center; display: inline-block;">
+                    Inscribirme ahora
+                    </a>
+                </form>
                 <!-- Descripción -->
                 <section>
                     <h2>Descripción del curso</h2>
@@ -95,35 +84,7 @@
             </div>
 
             <!-- Sidebar con resumen -->
-            <aside class="taller-sidebar">
-                <div class="form-group">
-                    <label>Precio</label>
-                    <div class="precio">S/100 (~35 USD)</div>
-                </div>
-
-                <div class="sidebar-block">
-                    <h3>Docente</h3>
-                    <p><strong>Sergio Miranda</strong><br>Antropólogo y Chamán</p>
-                </div>
-
-                <div class="sidebar-block">
-                    <h3>Calendario</h3>
-                    <ul>
-                        <li>✦ 23 de abril, 8:00-10:00pm</li>
-                        <li>✦ 30 de abril, 8:00-10:00pm</li>
-                        <li>✦ 7 de mayo, 8:00-10:00pm</li>
-                        <li>✦ 14 de mayo, 8:00-10:00pm</li>
-                        <p>Hora Perú</p>
-                    </ul>
-                </div>
-
-                <!-- Formulario de inscripción -->
-                <form action="#" method="get">
-                    <a href="https://wa.me/51967212549" class="btn-primary">
-                    Inscribirme ahora
-                    </a>
-                </form>
-            </aside>
+           
         </div>
     </main>
 
