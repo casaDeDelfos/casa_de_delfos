@@ -314,6 +314,40 @@ header::before {
 /* =========================================
    RESTO DEL LAYOUT (Tarjetas, Container)
    ========================================= */
+.image-for-taller {
+    width: 90%;            /* No ocupa el 100% del ancho de la pantalla */
+    max-width: 800px;      /* Lo limitamos para que parezca un cuadro/ventana */
+    height: 500px;         /* Mantén la altura o ajústala a 600px si lo quieres más cuadrado */
+    margin: 1rem auto;     /* 'auto' lo centra horizontalmente; 2rem de aire arriba/abajo */
+    
+    overflow: hidden;
+    position: relative;
+    background-color: var(--bg-secondary);
+    
+    /* BORDES SUAVIZADOS */
+   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    border-radius: 30px;   /* Ajusta este valor para más o menos redondeo */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Sombra para darle profundidad */
+    
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Un borde sutil tipo cristal */
+}
+.image-for-taller img {
+    width: 100%;
+    height: 100%;
+    
+    /* 1. Recorta la imagen para llenar el contenedor */
+    object-fit: cover; 
+    
+    /* 2. CENTRADO PERFECTO: El primer valor es horizontal, el segundo vertical */
+    /* 'center' asegura que el corazón de la imagen siempre esté en medio */
+    object-position: center center; 
+    
+    display: block;
+    
+    /* Suavizado para evitar bordes dentados en las curvas */
+    image-rendering: auto;
+}
+
 .accordion {
     cursor: pointer;
     display: flex;              
